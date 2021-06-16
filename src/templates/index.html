@@ -4,21 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Find the food you want to eat, make it a favorite place to enjoy food." />
+    <meta name="theme-color" content="#84b400" />
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/b070c8f1df.js"></script>
     <title>Restaurant Apps</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <a href="#maincontent" class="skip-link">To Content</a>
-    <nav id="drawer" class="nav">
-      <div class="logo">Restaurant</div>
-      <ul class="nav_list">
-        <li class="nav__item"><a href="/">Home</a></li>
-        <li class="nav__item"><a href="#">Favorite</a></li>
-        <li class="nav__item"><a href="https://github.com/ndaday">About Us</a></li>
-      </ul>
-      <button id="menu" class="burger" href="#">☰</button>
-    </nav>
-
+    <a href="#mainContent" class="skip-link">To Content</a>
+    <header class="app-bar">
+      <div class="app-bar_menu">
+        <button id="hamburgerButton">☰</button>
+      </div>
+      <div class="app-bar_logo">
+        <h1>Restaurant Catalogue</h1>
+      </div>
+      <nav id="drawer" class="app-bar_nav">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="#/favorite">Favorite</a></li>
+          <li><a href="https://github.com/ndaday">About Us</a></li>
+        </ul>
+      </nav>
+    </header>
     <div class="hero">
       <div class="hero_inner">
         <h1 class="hero_title">what do you want to eat today?</h1>
@@ -26,16 +36,9 @@
       </div>
     </div>
 
-    <main id="maincontent">
-      <section class="content">
-        <div class="latest">
-          <h1 class="latest_label">Explore Restaurant</h1>
-          <div id="post"></div>
-        </div>
-      </section>
-    </main>
+    <main id="mainContent"></main>
     <footer>
-      <h4>Copyright &copy; 2021 - Restaurant Apps</h4>
+      <p>Copyright &copy; 2021 - Restaurant Apps</p>
     </footer>
   </body>
 </html>

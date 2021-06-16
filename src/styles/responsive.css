@@ -1,75 +1,84 @@
-@media screen and (max-width: 768px) {
-  body {
-    overflow-x: hidden;
+@media screen and (min-width: 650px) {
+  .app-bar {
+    grid-template-columns: 1fr auto;
+    padding: 8px 32px;
   }
-  .burger {
+
+  .app-bar .app-bar_logo h1 {
+    font-size: 1.5em;
+  }
+
+  .app-bar .app-bar_menu {
+    display: none;
+  }
+
+  .app-bar .app-bar_nav {
+    position: static;
+    width: 100%;
+  }
+
+  .app-bar .app-bar_nav ul li {
     display: inline-block;
-    background-color: #8dc000;
   }
 
-  .nav_list {
-    position: absolute;
-    right: 0;
-    height: 70vh;
-    top: 8vh;
-    width: 100%;
-    background-color: #8dc000;
-    flex-direction: column;
-    align-items: center;
-    transform: translateX(100%);
-    transition: 0.5s;
-    list-style-type: none;
+  .app-bar .app-bar_nav ul li a {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    margin: 0;
   }
 
-  .nav-active {
-    transform: translateX(0%);
-  }
-
-  .nav_item a {
-    width: 100%;
-  }
-
-  #post {
+  .posts {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media screen and (max-width: 500px) {
-  body {
-    overflow-x: hidden;
+@media screen and (min-width: 800px) {
+  .app-bar .app-bar_logo h1 {
+    font-size: 2em;
   }
-  .burger {
-    display: inline-block;
-    background-color: #8dc000;
+}
+
+@media screen and (min-width: 850px) {
+  .posts {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .nav_list {
-    position: absolute;
-    right: 0;
-    height: 70vh;
-    top: 8vh;
-    width: 100%;
-    background-color: #8dc000;
-    flex-direction: column;
-    align-items: center;
-    transform: translateX(100%);
-    transition: 0.5s;
-    list-style-type: none;
+  .post-detail_description {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
   }
 
-  .nav-active {
-    transform: translateX(0%);
+  .post-detail_description .post__poster {
+    width: 40%;
+    margin: 15px;
   }
 
-  .nav_item {
-    width: 100%;
+  .post-detail_description > p {
+    width: 60%;
+    margin: 15px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .posts {
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  #post {
-    grid-template-columns: 1fr;
+  .post-detail_description .post__poster {
+    width: 50%;
   }
 
-  .post-item_thumb {
-    height: 200px;
+  .post-detail_description > p {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .posts {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
