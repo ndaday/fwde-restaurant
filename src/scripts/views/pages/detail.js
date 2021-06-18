@@ -1,6 +1,6 @@
 import UrlParser from '../../routes/url-parser';
 import RestaurantDbSource from '../../data/restaurantdb-source';
-import { createPostDetailTemplate, createReviewTemplate } from '../templates/template-creator';
+import { createPostDetailTemplate } from '../templates/template-creator';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
 
 const Detail = {

@@ -16,27 +16,27 @@ const createPostDetailTemplate = (post) => `
         <h3>Foods :</h3>
         <ul>
           ${post.menus.foods
-            .map(
-              (foods) => `
+    .map(
+      (foods) => `
           <li>
             <p>${foods.name}</p>
           </li>
-          `
-            )
-            .join('')}
+          `,
+    )
+    .join('')}
         </ul>
       </div>
       <div class="post-detail_drinks">
         <h3>Drinks :</h3>
         <ul>
           ${post.menus.drinks
-            .map(
-              (drinks) => `
+    .map(
+      (drinks) => `
           <li>
             <p>${drinks.name}</p>
-          </li>`
-            )
-            .join(' ')}
+          </li>`,
+    )
+    .join(' ')}
         </ul>
       </div>
     </div>
@@ -52,16 +52,16 @@ const createPostDetailTemplate = (post) => `
     </div>
       <h3>Customer Review</h3>
       ${post.customerReviews
-        .map(
-          (review) => `
+    .map(
+      (review) => `
       <div>
         <h4>${review.name}</h4>
         <p class="review-date">${review.date}</p>
         <p>${review.review}</p>
       </div>
-      `
-        )
-        .join('')}
+      `,
+    )
+    .join('')}
     </div>
 `;
 
@@ -70,6 +70,9 @@ const createPostItemTemplate = (post) => `
     <div class="post-item__header">
         <img class="post-item__header__poster" alt="${post.name}"
             src="${post.pictureId ? CONFIG.BASE_IMAGE_URL + post.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}">
+        <div class="post-item__header__city">
+          <p>${post.city}
+        </div>
         <div class="post-item__header__rating">
             <p>⭐️<span class="post-item__header__rating__score">${post.rating}</span></p>
         </div>
