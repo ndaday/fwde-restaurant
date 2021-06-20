@@ -26,6 +26,7 @@ const Detail = {
       post: {
         id: post.restaurant.id,
         name: post.restaurant.name,
+        city: post.restaurant.city,
         description: post.restaurant.description,
         pictureId: post.restaurant.pictureId,
         rating: post.restaurant.rating,

@@ -8,7 +8,7 @@ const createPostDetailTemplate = (post) => `
       <p class="categories">Categories: ${post.categories.map((category) => category.name).join(', ')}</p>
     </div>
     <div class="post-detail_description">
-      <img class="post__poster" src="${CONFIG.BASE_IMAGE_URL + post.pictureId}" alt="${post.name}" />
+      <img class="post__poster" src="${CONFIG.LARGE_IMAGE_URL + post.pictureId}" alt="${post.name}" />
       <p>${post.description}</p>
     </div>
     <div class="post-detail_menu">
