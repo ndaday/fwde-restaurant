@@ -1,8 +1,5 @@
 import FavoriteRestaurantIdb from '../../data/favoriterestaurant-idb';
 import { createPostItemTemplate } from '../templates/template-creator';
-import FavoriteRestaurantSearchView from './liked-restaurant/favorite-restaurant-search-view';
-
-const view = new FavoriteRestaurantSearchView();
 
 const Favorite = {
   async render() {
