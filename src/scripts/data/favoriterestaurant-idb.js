@@ -34,14 +34,14 @@ const FavoriteRestaurantIdb = {
   },
 
   async searchRestaurant(query) {
-    return (await this.getAllRestaurant()).filter((resto) => {
-      const loweredCaseRestoTitle = (resto.title || '-').toLowerCase();
-      const jammedRestoTitle = loweredCaseRestoTitle.replace(/\s/g, '');
+    return (await this.getAllRestaurant()).filter((post) => {
+      const loweredCaseMovieTitle = (post.name || '-').toLowerCase();
+      const jammedMovieTitle = loweredCaseMovieTitle.replace(/\s/g, '');
 
       const loweredCaseQuery = query.toLowerCase();
       const jammedQuery = loweredCaseQuery.replace(/\s/g, '');
 
-      return jammedRestoTitle.indexOf(jammedQuery) !== -1;
+      return jammedMovieTitle.indexOf(jammedQuery) !== -1;
     });
   },
 };

@@ -5,17 +5,15 @@ class FavoriteRestaurantSearchView {
         return `
         <div class="content">
         <input id="query" type="text">
-        <h2 class="content_heading">Favorite Restaurant</h2>
-            <div id="restaurant-search-container">
-                <div id="posts" class="posts">
-
-                </div>
-            </div>
+        <h2 class="content_heading">Favorite Restaurant</h2>     
+            <div id="posts" class="posts">
+            </div>     
         </div>
         `;
     }
 
     runWhenUserIsSearching(callback) {
+        console.log(callback);
         document.getElementById('query').addEventListener('change', (event) => {
             callback(event.target.value);
         });
@@ -39,7 +37,7 @@ class FavoriteRestaurantSearchView {
     }
 
     _getEmptyRestaurantTemplate() {
-        return '<div class="post-item__not__found posts__not__found">Tidak ada reto untuk ditampilkan</div>';
+        return '<div class="post-item__not__found posts__not__found">Tidak ada restaurant untuk ditampilkan</div>';
     }
 }
 

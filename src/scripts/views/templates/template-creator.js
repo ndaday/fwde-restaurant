@@ -2,7 +2,7 @@ import CONFIG from '../../globals/config';
 
 const createPostDetailTemplate = (post) => `
     <div class="post-detail_header">
-      <h2>${post.name}</h2>
+      <h2 class="restaurant__title">${post.name}</h2>
       <p>⭐️ ${post.rating}</p>
       <p>${post.city}, ${post.address}</p>
       <p class="categories">Categories: ${post.categories.map((category) => category.name).join(', ')}</p>
