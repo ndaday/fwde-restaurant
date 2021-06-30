@@ -8,7 +8,7 @@ const createPostDetailTemplate = (post) => `
       <p class="categories">Categories: ${post.categories.map((category) => category.name).join(', ')}</p>
     </div>
     <div class="post-detail_description">
-      <img class="post__poster" src="${CONFIG.LARGE_IMAGE_URL + post.pictureId}" alt="${post.name}" />
+      <img class="lazyload post__poster" data-src="${CONFIG.LARGE_IMAGE_URL + post.pictureId}" alt="${post.name}" />
       <p>${post.description}</p>
     </div>
     <div class="post-detail_menu">
@@ -45,8 +45,8 @@ const createPostDetailTemplate = (post) => `
       <h3>Add Review</h3>
       <form id="formField">
         <input type="hidden" id="postId">
-        <input type="text" id="nameReviewer" placeholder="Your name.."><br>
-        <input type="text" id="textReview" placeholder="Your review.."><br>
+        <input aria-label="Name" type="text" id="nameReviewer" placeholder="Your name.."><br>
+        <input aria-label="Review" type="text" id="textReview" placeholder="Your review.."><br>
         <input type="submit" id="addReview" value="Submit"></input>
       </form>
     </div>
@@ -68,8 +68,8 @@ const createPostDetailTemplate = (post) => `
 const createPostItemTemplate = (post) => `
   <div class="post-item">
     <div class="post-item__header">
-        <img class="post-item__header__poster" alt="${post.name}"
-            src="${post.pictureId ? CONFIG.BASE_IMAGE_URL + post.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}">
+        <img class="lazyload post-item__header__poster" width="100%" height="350px" src="./images/placeholder.png" alt="${post.name}"
+            data-src="${post.pictureId ? CONFIG.BASE_IMAGE_URL + post.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}">
         <div class="post-item__header__city">
           <p>${post.city}
         </div>
@@ -90,10 +90,29 @@ const createLikeButtonTemplate = () => `
   </button>
 `;
 
-const createLikedButtonTemplate = () => `
+const createUnlikeButtonTemplate = () => `
   <button aria-label="unlike this restaurant" id="likeButton" class="like">
     <i class="fa fa-heart" aria-hidden="true"></i>
   </button>
 `;
 
-export { createPostItemTemplate, createPostDetailTemplate, createLikeButtonTemplate, createLikedButtonTemplate };
+const createSkeletonTemplate = (count) => {
+  let template = '';
+
+  for (let i = 0; i < count; i += 1) {
+    template += `
+      <div class="post-item">
+        <div class="post-item__header">
+            <img class="post-item__header__poster" width="100%" height="350px" src="./images/placeholder.png" alt="skeleton">
+        </div>
+        <div class="post-item__content">
+            <h3 class="skeleton">Lorem ipsum dolor sit.</a></h3>
+            <p class="skeleton">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci alias aspernatur, assumenda aut consectetur consequuntur debitis deleniti dicta dolorem dolorum eos exercitationem labore laboriosam magni nihil, nobis obcaecati optio perspiciatis placeat qui recusandae saepe sapiente sequi totam ullam ut.</p>
+        </div>
+      </div>
+  `;
+  }
+  return template;
+};
+
+export { createPostItemTemplate, createPostDetailTemplate, createLikeButtonTemplate, createUnlikeButtonTemplate, createSkeletonTemplate };
