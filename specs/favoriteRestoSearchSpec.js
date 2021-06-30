@@ -49,14 +49,14 @@ describe('Searching restaurant', () => {
 
         it('should show the found restaurant', () => {
             presenter._showFoundRestaurant([{ id: 1 }]);
-            expect(document.querySelectorAll('.restaurant').length).toEqual(2);
+            expect(document.querySelectorAll('.post-item').length).toEqual(1);
 
             presenter._showFoundRestaurant([{ id: 1, title: 'Satu' }, { id: 2, title: 'Dua' }]);
-            expect(document.querySelectorAll('.restaurant').length).toEqual(3);
+            expect(document.querySelectorAll('.post-item').length).toEqual(2);
         });
 
         it('should show - when the restaurant returned does not contain a title', (done) => {
-            document.getElementById('restaurant-search-container').addEventListener('restaurant:searched:updated', () => {
+            document.getElementById('posts').addEventListener('posts:updated', () => {
                 const restaurantTitles = document.querySelectorAll('.restaurant__title');
                 expect(restaurantTitles.item(0).textContent).toEqual('-');
                 done();
@@ -93,9 +93,9 @@ describe('Searching restaurant', () => {
 
     describe('When no favorite resto could be found', () => {
         it('should show the empty message', (done) => {
-            document.getElementById('restaurant-search-container')
-                .addEventListener('restaurant:searched:updated', () => {
-                    expect(document.querySelectorAll('.restaurant__not__found').length)
+            document.getElementById('posts')
+                .addEventListener('posts:updated', () => {
+                    expect(document.querySelectorAll('.post-item__not__found').length)
                         .toEqual(1);
                     done();
                 });
@@ -106,8 +106,8 @@ describe('Searching restaurant', () => {
         });
 
         it('should not show any restaurant', (done) => {
-            document.getElementById('restaurant-search-container').addEventListener('restaurant:searched:updated', () => {
-                expect(document.querySelectorAll('.restaurant').length).toEqual(1);
+            document.getElementById('posts').addEventListener('posts:updated', () => {
+                expect(document.querySelectorAll('.post-item').length).toEqual(0);
                 done();
             });
 

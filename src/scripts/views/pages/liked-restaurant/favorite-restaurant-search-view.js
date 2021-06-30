@@ -3,21 +3,13 @@ import { createPostItemTemplate } from '../../templates/template-creator';
 class FavoriteRestaurantSearchView {
     getTemplate() {
         return `
-        <div id="restaurant-search-container">
-            <input id="query" type="text">
-            <div class="restaurant-result-container">
-                <ul class="restaurant">
-                </ul>
-            </div>
-        </div>
-        `;
-    }
+        <div class="content">
+        <input id="query" type="text">
+        <h2 class="content_heading">Favorite Restaurant</h2>
+            <div id="restaurant-search-container">
+                <div id="posts" class="posts">
 
-    getFavoriteItemTemplate() {
-        return `<div class="content">
-            <h2 class="content_heading">Favorite Restaurant</h2>
-            <div id="posts" class="posts">
-
+                </div>
             </div>
         </div>
         `;
@@ -30,20 +22,7 @@ class FavoriteRestaurantSearchView {
     }
 
     showRestaurant(resto) {
-        let html;
-
-        if (resto.length > 0) {
-            html = resto.reduce(
-                (carry, restaurant) => carry.concat(`<li class="restaurant"><span class="restaurant__title">${restaurant.title || '-'}</span></li>`),
-                '',
-            );
-        } else {
-            html = '<div class="restaurant__not__found">resto tidak ditemukan</div>';
-        }
-
-        document.querySelector('.restaurant').innerHTML = html;
-
-        document.getElementById('restaurant-search-container').dispatchEvent(new Event('restaurant:searched:updated'));
+        this.showFavoriteRestaurant(resto);
     }
 
     showFavoriteRestaurant(restaurant = []) {
@@ -51,12 +30,16 @@ class FavoriteRestaurantSearchView {
         if (restaurant.length) {
             html = restaurant.reduce((carry, resto) => carry.concat(createPostItemTemplate(resto)), '');
         } else {
-            html = '<div class="post-item__not__found"></div>';
+            html = this._getEmptyRestaurantTemplate();
         }
 
         document.getElementById('posts').innerHTML = html;
 
         document.getElementById('posts').dispatchEvent(new Event('posts:updated'));
+    }
+
+    _getEmptyRestaurantTemplate() {
+        return '<div class="post-item__not__found posts__not__found">Tidak ada reto untuk ditampilkan</div>';
     }
 }
 

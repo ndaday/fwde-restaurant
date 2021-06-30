@@ -7,7 +7,7 @@ describe('Showing all favorite restaurants', () => {
 
     const renderTemplate = () => {
         view = new FavoriteRestaurantSearchView();
-        document.body.innerHTML = view.getFavoriteItemTemplate();
+        document.body.innerHTML = view.getTemplate();
     };
 
     beforeEach(() => {

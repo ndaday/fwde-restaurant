@@ -68,18 +68,18 @@ const createPostDetailTemplate = (post) => `
 const createPostItemTemplate = (post) => `
   <div class="post-item">
     <div class="post-item__header">
-        <img class="lazyload post-item__header__poster" width="100%" height="350px" src="./images/placeholder.png" alt="${post.name}"
+        <img class="lazyload post-item__header__poster" width="100%" height="350px" src="./images/placeholder.png" alt="${post.name || '-'}"
             data-src="${post.pictureId ? CONFIG.BASE_IMAGE_URL + post.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}">
         <div class="post-item__header__city">
           <p>${post.city}
         </div>
         <div class="post-item__header__rating">
-            <p>⭐️<span class="post-item__header__rating__score">${post.rating}</span></p>
+            <p>⭐️<span class="post-item__header__rating__score">${post.rating || '-'}</span></p>
         </div>
     </div>
     <div class="post-item__content">
-        <h3><a href="${`/#/detail/${post.id}`}">${post.name}</a></h3>
-        <p>${post.description}</p>
+        <h3 class="restaurant__title"><a href="${`/#/detail/${post.id}`}">${post.name || '-'}</a></h3>
+        <p>${post.description || '-'}</p>
     </div>
   </div>
   `;
