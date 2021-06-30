@@ -15,12 +15,12 @@ const Detail = {
   },
 
   async afterRender() {
+    document.querySelector('.hero').style.display = 'none';
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const post = await RestaurantDbSource.detailPost(url.id);
     const postContainer = document.querySelector('#post');
     postContainer.innerHTML = createPostDetailTemplate(post.restaurant);
 
-    document.querySelector('.hero').style.display = 'none';
 
     LikeButtonPresenter.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),

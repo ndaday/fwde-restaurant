@@ -45,7 +45,6 @@ describe('Liking A Restaurant', () => {
         FavoriteRestaurantIdb.deleteRestaurant(1);
     });
 
-    // TODO:Alur negatif menyimpan movie tanpa ID tidak boleh menyebabkan kegagalan.
     it('should not add a restaurant when it has no id', async () => {
         await TestFactories.createLikeButtonPresenterWithPost({});
 

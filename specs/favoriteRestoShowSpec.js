@@ -26,7 +26,7 @@ describe('Showing all favorite restaurants', () => {
             expect(favoriteRestaurant.getAllRestaurant).toHaveBeenCalledTimes(1);
         });
 
-        it('should show the information that no movies have been liked', (done) => {
+        it('should show the information that no resto have been liked', (done) => {
             document.getElementById('posts').addEventListener('posts:updated', () => {
                 expect(document.querySelectorAll('.post-item__not__found').length)
                     .toEqual(1);
