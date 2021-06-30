@@ -34,12 +34,12 @@ describe('Showing all favorite restaurants', () => {
                 done();
             });
 
-            const favoriteRestaurants = spyOnAllFunctions(FavoriteRestaurantIdb);
-            favoriteRestaurants.getAllRestaurant.and.returnValues([]);
+            const favoriteRestaurant = spyOnAllFunctions(FavoriteRestaurantIdb);
+            favoriteRestaurant.getAllRestaurant.and.returnValues([]);
 
             new FavoriteRestaurantShowPresenter({
                 view,
-                favoriteRestaurants,
+                favoriteRestaurant,
             });
         });
     });
@@ -51,8 +51,8 @@ describe('Showing all favorite restaurants', () => {
                 done();
             });
 
-            const favoriteRestaurants = spyOnAllFunctions(FavoriteRestaurantIdb);
-            favoriteRestaurants.getAllRestaurant.and.returnValues([
+            const favoriteRestaurant = spyOnAllFunctions(FavoriteRestaurantIdb);
+            favoriteRestaurant.getAllRestaurant.and.returnValues([
                 {
                     id: 11, title: 'A', vote_average: 3, overview: 'Sebuah resto A',
                 },
@@ -63,7 +63,7 @@ describe('Showing all favorite restaurants', () => {
 
             new FavoriteRestaurantShowPresenter({
                 view,
-                favoriteRestaurants,
+                favoriteRestaurant,
             });
         });
     });
