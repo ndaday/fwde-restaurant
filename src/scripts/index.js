@@ -10,6 +10,7 @@ const app = new App({
   button: document.querySelector('#hamburgerButton'),
   drawer: document.querySelector('#drawer'),
   content: document.querySelector('#mainContent'),
+  jumbotron: document.querySelector('.hero'),
 });
 
 window.addEventListener('hashchange', () => {

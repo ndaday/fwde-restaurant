@@ -5,6 +5,12 @@ import { createPostItemTemplate, createSkeletonTemplate } from '../templates/tem
 const Home = {
   async render() {
     return `
+    <div class="hero">
+      <div class="hero_inner">
+        <h1 class="hero_title">what do you want to eat today?</h1>
+        <p class="hero_tagline">feel all the flavors from all over the country</p>
+      </div>
+    </div>
       <div class="content">
         <h2 class="content_heading">Explore Restaurant</h2>
         <div id="posts" class="posts">

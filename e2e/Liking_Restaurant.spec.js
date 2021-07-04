@@ -1,3 +1,7 @@
+/* eslint-disable codeceptjs/no-pause-in-scenario */
+/* eslint-disable no-await-in-loop */
+/* eslint-disable no-plusplus */
+/* eslint-disable semi */
 Feature('Liking Restaurant');
 
 const assert = require('assert');
@@ -6,7 +10,8 @@ Before(({ I }) => {
     I.amOnPage('/#/favorite');
 });
 
-Scenario('showing empty liked restaurant', async ({ I }) => {
+Scenario('like and unlike', async ({ I }) => {
+    // liking
     I.seeElement('#query');
     I.see('Tidak ada restaurant untuk ditampilkan', '.post-item__not__found');
 
@@ -26,6 +31,21 @@ Scenario('showing empty liked restaurant', async ({ I }) => {
     const likedPostTitle = await I.grabTextFrom('.restaurant__title');
 
     assert.strictEqual(firstPostTitle, likedPostTitle);
+
+    // unlike
+    I.amOnPage('/#/favorite');
+    I.seeElement('.restaurant__title a');
+
+    const firstFav = locate('.restaurant__title a').first();
+    const firstFavTitle = await I.grabTextFrom(firstFav);
+    I.click(firstFavTitle)
+
+    I.seeElement('#likeButton');
+    I.click('#likeButton');
+
+    I.amOnPage('/#/favorite');
+    I.seeElement('#query');
+    I.see('Tidak ada restaurant untuk ditampilkan', '.post-item__not__found');
 });
 
 Scenario('searching resto', async ({ I }) => {

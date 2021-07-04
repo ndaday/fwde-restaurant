@@ -11,7 +11,6 @@ const Favorite = {
   },
 
   async afterRender() {
-    document.querySelector('.hero').style.display = 'none';
     new FavoriteRestaurantShowPresenter({ view, favoriteRestaurant: FavoriteRestaurantIdb });
     new FavoriteRestaurantSearchPresenter({ view, favoriteRestaurant: FavoriteRestaurantIdb });
   },

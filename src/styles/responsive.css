@@ -40,6 +40,10 @@
 }
 
 @media screen and (min-width: 850px) {
+  .hero {
+    min-height: 380px;
+    background-image: url(./images/hero_desktop.jpg);
+  }
   .posts {
     grid-template-columns: repeat(3, 1fr);
   }
