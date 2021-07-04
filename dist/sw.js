@@ -5,6 +5,9 @@ var serviceWorkerOption = {
     "/main~29d6ecf2.bundle.js",
     "/favicon.png",
     "/manifest.json",
+    "/images/hero_desktop.jpg",
+    "/images/hero_mobile.jpg",
+    "/images/placeholder.png",
     "/icons/icon-128x128.png",
     "/icons/icon-144x144.png",
     "/icons/icon-152x152.png",
@@ -14,8 +17,6 @@ var serviceWorkerOption = {
     "/icons/icon-512x512.png",
     "/icons/icon-72x72.png",
     "/icons/icon-96x96.png",
-    "/images/hero.jpg",
-    "/images/placeholder.png",
     "/index.html"
   ]
 };
