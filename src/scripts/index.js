@@ -23,6 +23,6 @@ window.addEventListener('load', () => {
 
 const terminationEvent = 'onpagehide' in self ? 'pagehide' : 'unload';
 
-addEventListener(terminationEvent, (event) => {
+window.addEventListener(terminationEvent, (event) => {
 
 }, { capture: true });
